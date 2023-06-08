@@ -34,13 +34,13 @@ class StuffDocumentsChain(BaseCombineDocumentsChain):
     document_separator: str = "\n\n"
     """The string with which to join the formatted documents"""
 
-    class Config:
-        """Configuration for this pydantic object."""
+#     class Config:
+#         """Configuration for this pydantic object."""
 
-        extra = Extra.forbid
-        arbitrary_types_allowed = True
+#         extra = Extra.forbid
+#         arbitrary_types_allowed = True
 
-    @root_validator(pre=True)
+#     @root_validator(pre=True)
     def get_default_document_variable_name(cls, values: Dict) -> Dict:
         """Get default document variable name, if not provided."""
         llm_chain_variables = values["llm_chain"].prompt.input_variables
